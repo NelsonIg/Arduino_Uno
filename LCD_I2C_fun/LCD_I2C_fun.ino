@@ -107,10 +107,10 @@ void printValues() {
 void printValuesLCD(){
   lcd.clear();
   lcd.setCursor(0,0);
-  lcd.print(bme.readTemperature());
+  lcd.print(bme.readTemperature(),1);
   lcd.print((char)223); // Degree sign "°"
   lcd.print("C");
   lcd.setCursor(0,1);
-  lcd.print(bme.readHumidity());
-  lcd.print("% Humid.");
+  lcd.print(bme.readHumidity(),1);
+  lcd.print("% Humidity");
 }

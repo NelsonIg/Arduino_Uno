@@ -11,9 +11,11 @@
 
 #include <LiquidCrystal_I2C.h>
 #include <ESP8266WiFi.h>
+
+// Header File for password, must be created
+// #define STASSID ""
+// #define STAPSK ""
 #include "secrets.h"
-
-
 const String ssid = STASSID;
 const String key  = STAPSK;
 

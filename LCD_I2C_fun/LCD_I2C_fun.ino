@@ -39,17 +39,21 @@ void loop()
   delay(5000);
   printValues();
   printValuesLCD();
-  delay(5000);
-  printHostIp();
+  if(WiFi.status() == WL_CONNECTED){
+    // print ip and port if connected to wifi
+    delay(5000);
+    printHostIp();
+  }
+
   
 }
 
 void wifiInit(){
   lcd.setCursor(0,1);
-  lcd.print("Connecting");
+  lcd.print("WiFi Init.");
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, key);
-  while (WiFi.status() != WL_CONNECTED) {
+/*  while (WiFi.status() != WL_CONNECTED) {
     Serial.print('.');
     lcd.print('.');
     delay(500);
@@ -57,7 +61,7 @@ void wifiInit(){
   Serial.print("Connected! IP address: ");
   Serial.println(WiFi.localIP());
   Serial.printf("UDP server on port %d\n", localPort);
-  printHostIp();
+  printHostIp();*/
 }
 
 void lcdInit(){
